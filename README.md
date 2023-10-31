@@ -14,7 +14,7 @@
 
 本项目的事件处理模式为：Reactor
 
-![image-20231031170635587](C:\Users\DELL\AppData\Roaming\Typora\typora-user-images\image-20231031170635587.png)
+![image-20231031170635587](https://github.com/error-keen/data-structure/blob/main/img/web1.png)
 
 项目基于 HTTPconnection 类、HTTPrequest 类、HTTPresponse 类、timer 类、epoller 类、threadpool 类实现一个完整的高性能 web 服务器的所有功能。
 
@@ -34,7 +34,7 @@
 
   线性池模型：
 
-  ![image-20231031173927837](C:\Users\DELL\AppData\Roaming\Typora\typora-user-images\image-20231031173927837.png)
+  ![image-20231031173927837](https://github.com/error-keen/data-structure/blob/main/img/web2.png)
 
   
 
