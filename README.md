@@ -44,12 +44,12 @@
 
 内存池中哈希桶的思想借鉴了STL allocator，具体每个⼩内存池的实现参照了GitHub上的项⽬：[cacay/MemoryPool: An easy to use and efficient memory pool allocator written in C++. (github.com)](https://github.com/cacay/MemoryPool)
 
-[data-structure/img/web3.png at main · error-keen/data-structure (github.com)](https://github.com/error-keen/data-structure/blob/main/img/web3.png)
+![image-20231031170635589](https://github.com/error-keen/data-structure/blob/main/img/web3.png)
 
 主要框架如上图所示，主要就是维护⼀个哈希桶 MemoryPools ，⾥⾯每项对应⼀个内存池 MemoryPool ，哈希桶中每个内存池的块⼤⼩ BlockSize 是相同（4096字节，当然也可以设置为不同的），但是每个内存池⾥每个块分割的⼤⼩（槽⼤⼩） SlotSize 是不同的，依次为8,16,32,...,512字节（需要的内存超过512字节就
 ⽤ new/malloc ），这样设置的好处是可以保证内存碎⽚在可控范围内。
 
-[data-structure/img/web4.png at main · error-keen/data-structure (github.com)](https://github.com/error-keen/data-structure/blob/main/img/web4.png)
+![image-20231031170635589](https://github.com/error-keen/data-structure/blob/main/img/web4.png)
 
 内存池的内部结构如上图所示，主要的对象有：指向第⼀个可⽤内存块的指针 Slot currentBlock （也是图中的 ptr to firstBlock ，图⽚已经上传懒得改了），被释放对象的slot链表 Slot freeSlot ，未使⽤的slot链 表 Slot* currentSlot ，下⾯讲下具体的作⽤： 
 
